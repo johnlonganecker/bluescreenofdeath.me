@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bluescreen Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #wrapper {
+      display: grid;
+      background: #0000a9;
+      color: #fff;
+      width: 100vw;
+      height: 100vh;
+      font-family: 'VT323', monospace;
+      font-size: 5.5vh;
+    }
+    #screen1 {
+      align-self: center;
+      justify-self: center;
+      justify-items: stretch;
+      padding: 2vh 5vw;
+      display: none;
+    }
+    #screen2 {
+      align-self: center;
+      justify-self: center;
+      justify-items: stretch;
+      padding: 2vh 5vw;
+    }
+    #screen2 .heading {
+      background: #fff;
+      color: #0000a9;
+      padding: 1vh 1vw;
+    }
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="screen1">
+      <p>Problem has been detected and Windows has been shut down to prevent damage your computer.</p>
+      <p>The problem seems to be caused by the following file: kbdhid.sys</p>
+      <p>MANUALLY_INITIATED_CRASH</p>
+      <p>If this si the first time you've seen this stop error screen, restart your computer. If this screen appears again, follow these steps:</p>
+      <p>Check to make sure any new hardware or software is properly installed. If this is a new installation, ask your hardware or software manufacturer for any Windows updates you might need.</p>
+      <p>If problems continue, disable or remove any newly installed hardware or software. Disable BIOS memory options such as caching or shadowing. If you need to use safe mode to remove or disable components, restart your computer, press F8 to select Advanced Startup Options, and then select Safe Mode.</p>
+      <p>Technical Information:</p>
+      <p>*** STOP: 0x000000e2 (0x0000000, 0x0000000, 0x0000000, 0x0000000)</p>
+      <p>*** kbdhid.sys - Address 0x94efd1aa base at 0x94efb000 DateStamp 0x4a5bc705</p>
+    </div>
+    <div id="screen2">
+      <p class="center"><span class="heading">Windows</span></p>
+      <p>A fatal exception 0E has occurred at 0028:C0011E36 in VXD VMM(01) + 00010E36. The current application will be terminated.</p>
+      <p>* Press any key to terminate the current application.<br/>
+      * Press CTRL+ALT+DEL again to restart your computer. You will lose any unsaved information in all your applications.</p>
+      <p class="center">Press any key to continue</p>
+    </div>
+  </div>
+</body>
+<script>
+  let wrapper = document.getElementById('wrapper');
+
+  wrapper.addEventListener('click', e => {
+      document.getElementById('wrapper').requestFullscreen();
+  });
+  document.addEventListener('keypress', e => {
+      document.exitFullscreen();
+  });
+</script>
+</html>
