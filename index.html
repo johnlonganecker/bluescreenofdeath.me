@@ -7,6 +7,7 @@
     body {
       margin: 0;
       padding: 0;
+      overflow: hidden;
     }
     #wrapper {
       display: grid;
@@ -70,6 +71,14 @@
   });
   document.addEventListener('keypress', e => {
       document.exitFullscreen();
+  });
+  document.addEventListener('fullscreenchange', e => {
+    if(document.fullscreenElement) {
+      document.body.style.cursor = 'none';
+    }
+    else {
+      document.body.style.cursor = 'default';
+    }
   });
 </script>
 </html>
