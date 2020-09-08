@@ -68,9 +68,11 @@
 
   wrapper.addEventListener('click', e => {
       document.getElementById('wrapper').requestFullscreen();
+      screen.orientation.lock('landscape-primary');
   });
   document.addEventListener('keypress', e => {
       document.exitFullscreen();
+      screen.orientation.unlock();
   });
   document.addEventListener('fullscreenchange', e => {
     if(document.fullscreenElement) {
